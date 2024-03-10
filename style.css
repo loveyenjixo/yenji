@@ -1,0 +1,571 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #d1bea8;
+    background-size: cover;
+    background-position: center;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    margin: auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    background: #836953;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logo {
+    font-size: 2em;
+    color: white;
+    user-select: none;
+
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+/* underline hover */
+.navigation a::after {
+    content:'';
+    position: absolute;
+    left: 0;
+    bottom: .6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s ;
+}
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+    
+}
+
+.navigation .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid black;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: black;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+/*login hover*/
+.navigation .btnLogin-popup:hover {
+    background: #fff;
+    color: black;
+}
+
+
+.form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+/*adjust text color h2 for form box*/
+.form-box h2 {
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+
+}
+
+
+/*box for log in*/
+.form-box.login {
+    width: 400px; 
+    height: 450px; 
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgb( 0, 0, 0, .5);
+    padding: 30px; 
+    margin: 50px auto; 
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.form-group {
+    width: 400px; 
+    height: 480px; 
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgb( 0, 0, 0, .5);
+    padding: 30px; 
+    margin: 50px auto; 
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+/*closing login/register tab */
+.form-box .icon-close ion-icon {
+    font-size: 1.5em; 
+    color: #555; 
+    position: absolute;
+    top: 10px;
+    right: 4px;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+/*box for register*/
+.form-box.register {
+    width: 420px; 
+    height: 550px; 
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgb( 0, 0, 0, .5);
+    padding: 30px; 
+    overflow-y: auto; /*scrollbar for vertical overflow */
+    margin: 50px auto; 
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+/*style scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/*track */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/*handle */
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 5px;
+}
+
+/*handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+}
+
+
+/*style the dropdown select */
+.form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #f8f9fa;
+    border: .7px solid #ced4da;
+    width: 100%;
+    border-radius: 0.25rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+/*style the dropdown select when it is open */
+.form-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #fff;
+    margin: 30px 0;
+}
+
+/* labels */
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #f8f9fa;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.row.mb-3 label {
+    color: #f8f9fa;
+}
+
+.input-box input::placeholder {
+    color: #f8f9fa; /* change the text color of the placeholder */
+}
+
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: #f8f9fa;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot a {
+    color: #f8f9fa;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+/*design for login/register button*/
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #836953;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+.btn:hover {
+    background: #d2b48c;
+    color: black;
+
+}
+.btn.btn-warning {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid black;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: black;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.btn.btn-warning:hover{
+    background: #d2b48c;
+    color: black;
+
+}
+
+/* login/regiter options*/
+.login-register {
+    font-size: .9em;
+    color: #f8f9fa;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+
+.login-register p a {
+    color: #f8f9fa;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+    color: #836953;
+}
+
+
+
+/*design for homepage*/
+
+.images-home {
+    height: 300px;
+    padding: 20px; 
+    background-color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+    border-radius: 10px; 
+    max-width: 600px;
+    margin: 10px;
+    margin-bottom: 100px; 
+}
+
+
+/*FEEDBACKS DESIGN*/
+.feedbacks-container {
+    padding-bottom: 60px;
+}
+
+/* transparent box for home text */
+.transparent-box {
+    padding: 20px; 
+    background-color: rgba(255, 255, 255, 0.3); 
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+    border-radius: 10px; 
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    margin-top: 50px;
+    overflow: hidden; 
+    position: relative;
+
+}
+
+/* Lines on both sides */
+.transparent-box::before,
+.transparent-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #003366; 
+}
+
+.transparent-box::before {
+    left: -20px; 
+}
+
+.transparent-box::after {
+    right: -20px;
+}
+
+
+/*CONTACT PAGE DESIGN*/
+.social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    width: 500px;
+    height: 600px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
+
+.social-links h3 {
+    color: white; 
+}
+
+.social-links p {
+    color: white; 
+}
+
+.social-container {
+    margin-top: 20px;
+}
+
+.social-container a {
+    font-size: 2em; 
+}
+
+.social-container span {
+    color: #e3dac9;
+    display: block;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+
+/*GALLERY DESIGN*/
+.title {
+    color: #555;
+    background-color: #e3dac9;
+    text-align: center; 
+    margin: 0 auto; 
+    margin-left: 500px;
+    margin-top: 50px; 
+}
+
+
+
+.images {
+    height: 300px;
+    padding: 20px; 
+    background-color: #e3dac9;
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+    border-radius: 10px; 
+    max-width: 600px;
+    margin: 10px;
+    margin-bottom: 100px; 
+}
+
+div.gallery {
+    border: none;
+}
+
+div.gallery:hover {
+    border: none; /*should i put or nah*/
+}
+
+div.gallery img {
+    width: 180px;
+    height: 250px;
+}
+
+div.desc {
+    color: #fff;
+    margin-top: 50px;
+    width: 175px;
+    position: relative;
+    align-items: center;
+    overflow-y: scroll;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.3); 
+    border: 2px solid rgba(255, 255, 255, 0.5); /*transparent white border */
+    border-radius: 10px; 
+    padding: 15px;
+    text-align: center;
+}
+
+
+.responsive {
+    padding: 0 6px;
+    background-color: none;
+    float: center;
+    width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+    .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .responsive {
+        width: 100%;
+    }
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*about page design*/
+.about {
+    margin-top: 25px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    position: relative;
+    width: 650px;
+    overflow-y: scroll;
+    height: 550px;
+    margin: 0 auto; 
+    padding: 20px; 
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
+
+.about h3 {
+    margin-top: 20px;
+    color: white; 
+}
+
+.about p {
+    color: white; 
+    margin: 20px;
+}
+
+.about a {
+    font-size: 2em; 
+}
+
+.resume {
+    margin-left: -830px;
+    margin-bottom: 150px;
+    margin-top: 1000px;
+    height: 100px;
+    width: 200px;
+    align-items: center;
+    border-radius: 10px;
+    padding: 0; 
+    background-color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.5); 
+    box-sizing: border-box;
+}
+
+/*footer*/
+footer {
+    background-color: #856d4d;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
